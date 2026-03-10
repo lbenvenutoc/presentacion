@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
 
 const companies = [
-  { name: "Encora", logo: "./src/assets/experience/encora.png", url: "https://www.encora.com/es" },
-  { name: "NTT Data", logo: "/src/assets/experience/nttdata.png", url: "https://pe.nttdata.com" },
-  { name: "Indra", logo: "./src/assets/experience/indra.png", url: "https://www.indragroup.com/es" },
-  { name: "Cosapi", logo: "./src/assets/experience/cosapi.png", url: "https://www.cosapi.com.pe" },
-  { name: "Zicsa", logo: "./src/assets/experience/zicsa.png", url: "https://zicsa.com/" },
-  { name: "MIDIS", logo: "./src/assets/experience/midis.png", url: "https://www.gob.pe/midis" },
-  { name: "MIMP", logo: "./src/assets/experience/mimp.png", url: "https://www.gob.pe/mimp" },
-  { name: "SUNAFIL", logo: "./src/assets/experience/sunafil.png", url: "https://www.gob.pe/sunafil" },
-  { name: "SUSALUD", logo: "./src/assets/experience/susalud.png", url: "https://www.gob.pe/susalud" },
-  { name: "MINTRA", logo: "./src/assets/experience/mintra.png", url: "https://www.gob.pe/mtpe" },
-  { name: "INS", logo: "./src/assets/experience/ins.png", url: "https://www.gob.pe/ins" },
+  { name: "Encora", logo: "/experience/encora.png", url: "https://www.encora.com/es" },
+  { name: "NTT Data", logo: "/experience/nttdata.png", url: "https://pe.nttdata.com" },
+  { name: "Indra", logo: "/experience/indra.png", url: "https://www.indragroup.com/es" },
+  { name: "Cosapi", logo: "/experience/cosapi.png", url: "https://www.cosapi.com.pe" },
+  { name: "Zicsa", logo: "/experience/zicsa.png", url: "https://zicsa.com/" },
+  { name: "MIDIS", logo: "/experience/midis.png", url: "https://www.gob.pe/midis" },
+  { name: "MIMP", logo: "/experience/mimp.png", url: "https://www.gob.pe/mimp" },
+  { name: "SUNAFIL", logo: "/experience/sunafil.png", url: "https://www.gob.pe/sunafil" },
+  { name: "SUSALUD", logo: "/experience/susalud.png", url: "https://www.gob.pe/susalud" },
+  { name: "MINTRA", logo: "/experience/mintra.png", url: "https://www.gob.pe/mtpe" },
+  { name: "INS", logo: "/experience/ins.png", url: "https://www.gob.pe/ins" },
 ];
 
 const ExperienceSection = () => (
