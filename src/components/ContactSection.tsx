@@ -47,7 +47,7 @@ const ContactSection = () => (
         </div>
 
         <a
-          href="https://lbenvenutoc.github.io/portafolio/docs/cv-luis-benvenuto.pdf"
+          href="/cv/CV_BENVENUTO_VERSION_PORTAFOLIO.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-lg hover:shadow-[0_0_20px_hsl(142,70%,50%,0.3)] transition-all"
