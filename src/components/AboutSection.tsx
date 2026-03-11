@@ -15,7 +15,7 @@ const AboutSection = () => (
         <div className="w-20 h-0.5 bg-primary mb-8" />
         <div className="bg-card rounded-xl p-6 md:p-8 border border-border glow-border">
           <p className="text-foreground leading-relaxed mb-4">
-            Profesional en sistemas e informática residente en Lima, Perú, con
+            Profesional en Sistemas e Informática residente en Lima - Perú, con
             <span className="text-primary font-semibold"> más de 10 años de experiencia</span> laboral
             en análisis, diseño y programación de software para empresas públicas y privadas.
           </p>
