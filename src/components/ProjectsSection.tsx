@@ -21,7 +21,7 @@ const personalProjects = [
     org: "MIMP",
     tech: ["EJB", "JSF", "PrimeFaces", "JavaScript", "CSS"],
     image: "/projects/trabajo3.jpg",
-    url: "https://appweb.mimp.gob.pe:8181/bancofamilia-web/faces/login.xhtml",
+    url: "https://app.mimp.gob.pe/bancofamilia-web/",
   },
 ];
 
@@ -31,22 +31,43 @@ const teamProjects = [
     org: "SUNAFIL",
     tech: ["Java", "Android Studio", "Spring MVC"],
     image: "/projects/trabajo4.jpg",
-    url: "https://play.google.com/store/apps/details?id=ssitpmpws.sunafil.gob.pe.consultasolicitud",
+    url: "https://play.google.com/store/apps/details?id=pe.gob.sunafil.sunafilentusmanos&hl=es_PE",
   },
   {
     title: "Registro Nacional de Trabajadores de Construcción Civil",
     org: "MINTRA",
     tech: ["Spring MVC", "JSF", "PrimeFaces", "jQuery"],
     image: "/projects/trabajo5.jpg",
-    url: "https://appweb.trabajo.gob.pe/si.retcc/",
+    url: "https://www2.trabajo.gob.pe/directivas-mtpe/viceministerio-de-trabajo/direccion-general-de-trabajo/direccion-de-registros-nacionales-de-relaciones-de-trabajo/registro-nacional-de-trabajadores-de-construccion-civil-retcc/",
   },
   {
     title: "Registro Nacional de Obras de Construcción Civil",
     org: "MINTRA",
     tech: ["Spring MVC", "JSF", "PrimeFaces", "jQuery"],
     image: "/projects/trabajo6.jpg",
-    url: "https://www.sunat.gob.pe/xssecurity/SignOnVerification.htm",
+    url: "https://www2.trabajo.gob.pe/directivas-mtpe/viceministerio-de-trabajo/direccion-general-de-trabajo/direccion-de-registros-nacionales-de-relaciones-de-trabajo/registro-nacional-de-obras-de-construccion-civil-renocc/",
   },
+  {
+    title: "Proyecto Notificaciones Push",
+    org: "Confidencial",
+    tech: ["Spring Boot", "Java 17", "Spring Security", "Spring Webflux", "MSSql Server"],
+    image: "/projects/trabajo7.jpg",
+    url: "",
+  },
+  {
+    title: "Proyecto Tipo de Cambio",
+    org: "Confidencial",
+    tech: ["Spring Boot", "Java 17", "Spring Security", "Spring Webflux", "MSSql Server"],
+    image: "/projects/trabajo8.jpg",
+    url: "",
+  },
+   {
+    title: "Proyecto Botón de Pago",
+    org: "Confidencial",
+    tech: ["Spring Boot", "Java 17", "Spring Security", "Spring Webflux", "MSSql Server"],
+    image: "/projects/trabajo9.jpg",
+    url: "",
+  }
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof personalProjects[0]; index: number }) => (
@@ -79,14 +100,16 @@ const ProjectCard = ({ project, index }: { project: typeof personalProjects[0]; 
           </span>
         ))}
       </div>
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:underline"
-      >
-        <ExternalLink size={12} /> Visitar
-      </a>
+      {project.url && (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:underline"
+        >
+          <ExternalLink size={12} /> Visitar
+        </a>
+      )}
     </div>
   </motion.div>
 );

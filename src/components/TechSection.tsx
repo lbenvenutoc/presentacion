@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 const techCategories = [
   {
     title: "Backend",
-    items: ["Java", "Spring Boot", "Spring MVC", "EJB", "Node.js", "Python"],
+    items: ["Java", "Spring Boot", "Node.js", "Python"],
   },
   {
     title: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "jQuery", "JSF", "PrimeFaces", "Bootstrap", "React"],
+    items: ["HTML", "CSS", "JavaScript", "jQuery", "JSF", "PrimeFaces", "Bootstrap", "Angular"],
   },
   {
     title: "Mobile",
@@ -15,7 +15,15 @@ const techCategories = [
   },
   {
     title: "Herramientas",
-    items: ["Git", "Docker", "PostgreSQL", "MySQL", "Oracle", "Linux"],
+    items: ["Github", "Bitbucket", "Jenkins", "Blackduck", "Fortify", "Checkmarx", "Dynatrace", "Jfgrog", "Argo CD", "Docker", "PostgreSQL", "MySQL", "Oracle", "Linux"],
+  },
+  {
+    title: "Sistemas Operativos",
+    items: ["Windows", "Linux"],
+  },
+  {
+    title: "Bases de Datos",
+    items: ["PostgreSQL", "MySQL", "Oracle", "MSSql Server"],
   },
 ];
 
