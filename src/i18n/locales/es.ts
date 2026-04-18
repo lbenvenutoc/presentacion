@@ -47,6 +47,7 @@ export const es = {
     personal: "Trabajos personales",
     team: "Trabajos en equipo",
     visit: "Visitar",
+    confidential: "Confidencial",        
   },
   contact: {
     title: "Contacto",

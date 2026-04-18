@@ -47,6 +47,7 @@ export const en = {
     personal: "Personal work",
     team: "Team work",
     visit: "Visit",
+    confidential: "Confidential",    
   },
   contact: {
     title: "Contact",
