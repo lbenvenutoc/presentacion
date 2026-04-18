@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
-const links = [
-  { label: "Sobre mí", href: "#about" },
-  { label: "Tecnologías", href: "#tech" },
-  { label: "Experiencia", href: "#experience" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Contacto", href: "#contact" },
-];
+import { useTranslation } from "react-i18next";
+import LanguageToggle from "./LanguageToggle";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const links = [
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.tech"), href: "#tech" },
+    { label: t("nav.experience"), href: "#experience" },
+    { label: t("nav.projects"), href: "#projects" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
 
   return (
     <motion.nav
@@ -36,12 +39,16 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <LanguageToggle />
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <LanguageToggle />
+          <button className="text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

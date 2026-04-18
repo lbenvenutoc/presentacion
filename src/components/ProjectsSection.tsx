@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const personalProjects = [
   {
@@ -61,7 +62,7 @@ const teamProjects = [
     image: "/projects/trabajo8.jpg",
     url: "",
   },
-   {
+  {
     title: "Proyecto Botón de Pago",
     org: "Confidencial",
     tech: ["Spring Boot", "Java 17", "Spring Security", "Spring Webflux", "MSSql Server"],
@@ -70,7 +71,9 @@ const teamProjects = [
   }
 ];
 
-const ProjectCard = ({ project, index }: { project: typeof personalProjects[0]; index: number }) => (
+type Project = (typeof personalProjects)[0];
+
+const ProjectCard = ({ project, index, lang, visit }: { project: Project; index: number; lang: "es" | "en"; visit: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +84,7 @@ const ProjectCard = ({ project, index }: { project: typeof personalProjects[0]; 
     <div className="relative h-40 overflow-hidden">
       <img
         src={project.image}
-        alt={project.title}
+        alt={project[lang]}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-background/60 group-hover:bg-background/40 transition-colors" />
@@ -91,7 +94,7 @@ const ProjectCard = ({ project, index }: { project: typeof personalProjects[0]; 
     </div>
     <div className="p-5">
       <h4 className="font-display text-sm font-semibold text-foreground mb-3 line-clamp-2">
-        {project.title}
+        {project[lang]}
       </h4>
       <div className="flex flex-wrap gap-1.5 mb-4">
         {project.tech.map((t) => (
@@ -107,43 +110,49 @@ const ProjectCard = ({ project, index }: { project: typeof personalProjects[0]; 
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:underline"
         >
-          <ExternalLink size={12} /> Visitar
+          <ExternalLink size={12} /> {visit}
         </a>
       )}
     </div>
   </motion.div>
 );
 
-const ProjectsSection = () => (
-  <section id="projects" className="py-20 px-4">
-    <div className="container mx-auto max-w-5xl">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl font-display font-bold text-foreground mb-2">
-          <span className="text-primary">{"#"}</span> Proyectos
-        </h2>
-        <div className="w-20 h-0.5 bg-primary mb-10" />
-      </motion.div>
+const ProjectsSection = () => {
+  const { t, i18n } = useTranslation();
+  const lang: "es" | "en" = i18n.language.startsWith("en") ? "en" : "es";
+  const visit = t("projects.visit");
 
-      <h3 className="font-mono text-sm text-primary mb-6">{">"} Trabajos personales</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        {personalProjects.map((p, i) => (
-          <ProjectCard key={p.title} project={p} index={i} />
-        ))}
-      </div>
+  return (
+    <section id="projects" className="py-20 px-4">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-display font-bold text-foreground mb-2">
+            <span className="text-primary">{"#"}</span> {t("projects.title")}
+          </h2>
+          <div className="w-20 h-0.5 bg-primary mb-10" />
+        </motion.div>
 
-      <h3 className="font-mono text-sm text-primary mb-6">{">"} Trabajos en equipo</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {teamProjects.map((p, i) => (
-          <ProjectCard key={p.title} project={p} index={i} />
-        ))}
+        <h3 className="font-mono text-sm text-primary mb-6">{">"} {t("projects.personal")}</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {personalProjects.map((p, i) => (
+            <ProjectCard key={p.title} project={p} index={i} lang={lang} visit={visit} />
+          ))}
+        </div>
+
+        <h3 className="font-mono text-sm text-primary mb-6">{">"} {t("projects.team")}</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {teamProjects.map((p, i) => (
+            <ProjectCard key={p.title} project={p} index={i} lang={lang} visit={visit} />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ProjectsSection;

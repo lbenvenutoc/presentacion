@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import foto from "@/assets/foto.jpg";
 
-const titles = [
-  "Backend Developer",
-  "Full Stack Freelance",
-  "Java & Spring Expert",
-];
-
 const HeroSection = () => {
+  const { t, i18n } = useTranslation();
+  const titles = t("hero.titles", { returnObjects: true }) as string[];
+
   const [titleIndex, setTitleIndex] = useState(0);
   const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
 
+  // Reset typing animation when language changes
   useEffect(() => {
-    const current = titles[titleIndex];
+    setTitleIndex(0);
+    setText("");
+    setDeleting(false);
+  }, [i18n.language]);
+
+  useEffect(() => {
+    const current = titles[titleIndex] ?? "";
     let timeout: ReturnType<typeof setTimeout>;
 
     if (!deleting && text.length < current.length) {
@@ -29,7 +34,7 @@ const HeroSection = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [text, deleting, titleIndex]);
+  }, [text, deleting, titleIndex, titles]);
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 pt-16">
@@ -41,7 +46,7 @@ const HeroSection = () => {
           transition={{ duration: 0.7 }}
           className="flex-1 text-center md:text-left"
         >
-          <p className="font-mono text-sm text-primary mb-2">{"// Hola, soy"}</p>
+          <p className="font-mono text-sm text-primary mb-2">{t("hero.greeting")}</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4">
             Luis Benvenuto
           </h1>
@@ -52,21 +57,20 @@ const HeroSection = () => {
             <span className="terminal-cursor font-mono text-xl sm:text-2xl text-primary">|</span>
           </div>
           <p className="mt-6 text-muted-foreground max-w-lg mx-auto md:mx-0 font-body leading-relaxed">
-            +10 años creando software robusto para empresas públicas y privadas en Perú.
-            Apasionado por el código limpio y las metodologías ágiles.
+            {t("hero.description")}
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
             <a
               href="#projects"
               className="px-6 py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-lg hover:shadow-[0_0_20px_hsl(142,70%,50%,0.3)] transition-all"
             >
-              Ver proyectos
+              {t("hero.cta_projects")}
             </a>
             <a
               href="#contact"
               className="px-6 py-3 border border-primary text-primary font-mono text-sm font-semibold rounded-lg hover:bg-primary/10 transition-all"
             >
-              Contacto
+              {t("hero.cta_contact")}
             </a>
           </div>
         </motion.div>
